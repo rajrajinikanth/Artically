@@ -1,0 +1,9 @@
+{
+  "name": "artically",
+  "version": "0.0.0",
+  "description": "Artically",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}
