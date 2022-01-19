@@ -1,7 +1,13 @@
-[
+  [
     {
       "id": "artically-webhook",
-      "execute-command": "node /app.js dinamalar",
-      "command-working-directory": "/app/Artically"
+      "execute-command": "artically.sh",
+      "command-working-directory": "/app/Artically/",
+      "pass-arguments-to-command": [
+        {
+          "source": "payload",
+          "name": "article.code"
+        } 
+      ]
     }
   ]
