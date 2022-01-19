@@ -1,13 +1,18 @@
-  [
+[
     {
-      "id": "artically-webhook",
-      "execute-command": "articallyexec.sh",
-      "command-working-directory": "/app/Artically/",
-      "pass-arguments-to-command": [
+      "id": "webhook",
+      "execute-command": "node",
+      "command-working-directory": "/app/Artically",
+      "pass-arguments-to-command":
+      [
         {
-          "source": "payload",
-          "name": "article.code"
-        } 
+          "source": "string",
+          "name": "app.js"
+        },
+        {
+          "source": "string",
+          "name": "viduthalai"
+        }
       ]
     }
   ]
