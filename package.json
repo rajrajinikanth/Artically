@@ -1,0 +1,32 @@
+{
+  "name": "artically",
+  "version": "1.0.0",
+  "description": "web scrap editorial articles and post to wordpress blog",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajrajinikanth/Artically.git"
+  },
+  "author": "Rajinikanth Thangaraj",
+  "license": "ISC",
+  "dependencies": {
+    "@mozilla/readability": "^0.4.1",
+    "cheerio": "^1.0.0-rc.10",
+    "chrono-node": "^2.3.4",
+    "got": "^12.0.0",
+    "ioredis": "^4.28.3",
+    "jsdom": "^19.0.0",
+    "url": "^0.11.0",
+    "url-join": "^4.0.1",
+    "util-promisify": "^3.0.0",
+    "wpapi": "^1.2.2"
+  },
+  "bugs": {
+    "url": "https://github.com/rajrajinikanth/Artically/issues"
+  },
+  "homepage": "https://github.com/rajrajinikanth/Artically#readme"
+}
