@@ -1,7 +1,7 @@
   [
     {
       "id": "artically-webhook",
-      "execute-command": "artically.sh",
+      "execute-command": "articallyexec.sh",
       "command-working-directory": "/app/Artically/",
       "pass-arguments-to-command": [
         {
