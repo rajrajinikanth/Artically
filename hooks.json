@@ -10,8 +10,8 @@
           "name": "app.js"
         },
         {
-          "source": "string",
-          "name": "viduthalai"
+          "source": "url",
+          "name": "article"
         }
       ]
     }
