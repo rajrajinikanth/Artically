@@ -1,7 +1,7 @@
 [
     {
       "id": "artically-webhook",
-      "execute-command": "node app.js dinamalar",
+      "execute-command": "node /app.js dinamalar",
       "command-working-directory": "/app/Artically"
     }
   ]
