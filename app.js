@@ -24,7 +24,7 @@ var docName = cliParams[0];
 var configKey = 'artically.'+ docName +'.config'
 
 
- var config = JSON.parse(await getRedisValue(configKey));
+var config = JSON.parse(await getRedisValue(configKey));
  
 var content = await getArticle(config);
 await publishArticle(content);
@@ -60,17 +60,23 @@ async function publishArticle(content){
     var wp_credentials = decodeBase64(await getRedisValue('artically.wordpress.credentials'));
     var wp_username = wp_credentials.split(':')[0];
     var wp_password = wp_credentials.split(':')[1];
-   
+ 
        var wp = new WordPressApi({
            endpoint: wp_endpoint,
            username: wp_username,
            password: wp_password
        });
-   
+
+      var tag =  await wp.tags().slug(docName).then(function( tag ) { return(tag[0].id); });
+      var cat =  await wp.categories().slug('editorial').then(function( cat ) { return(cat[0].id); });
+
        wp.posts().create({
            title: content.articleTitle,
            content: content.articleContent,
-           status: 'publish'        
+           slug:docName,
+           tags: [tag],
+           categories: [cat],
+           status: 'publish',
        }).then(function( response ) {
            console.log( response.id );
        }).catch(function( err ) {
