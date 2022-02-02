@@ -23,7 +23,6 @@ const cliParams = process.argv.slice(2);
 var docName = cliParams[0];
 var configKey = 'artically.'+ docName +'.config'
 
-
 var config = JSON.parse(await getRedisValue(configKey));
  
 var content = await getArticle(config);
@@ -70,9 +69,15 @@ async function publishArticle(content){
       var tag =  await wp.tags().slug(docName).then(function( tag ) { return(tag[0].id); });
       var cat =  await wp.categories().slug('editorial').then(function( cat ) { return(cat[0].id); });
 
+       var metaformat = await getRedisValue('artically.metaformat.config');
+
+       metaformat = metaformat.replace('@article.sourceurl',content.articleUrl);
+       metaformat = metaformat.replace('@article.sourcedate',content.articleDt);
+       metaformat = metaformat.replace('@article.sourcename',docName);
+
        wp.posts().create({
            title: content.articleTitle,
-           content: content.articleContent,
+           content: metaformat + content.articleContent,
            slug:docName,
            tags: [tag],
            categories: [cat],
